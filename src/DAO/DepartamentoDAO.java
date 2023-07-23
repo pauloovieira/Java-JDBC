@@ -1,5 +1,7 @@
-package ProjetoJDBC;
+package DAO;
 import java.util.List;
+
+import ProjetoJDBC.Departamento;
 
 public interface DepartamentoDAO {
 

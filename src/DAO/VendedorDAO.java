@@ -1,5 +1,7 @@
-package ProjetoJDBC;
+package DAO;
 import java.util.List;
+
+import ProjetoJDBC.Vendedor;
 
 public interface VendedorDAO {
 
