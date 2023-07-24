@@ -1,10 +1,23 @@
 package DAO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
-import ProjetoJDBC.Vendedor;
 
+import ProjetoJDBC.Departamento;
+import ProjetoJDBC.Vendedor;
+import db.DB;
+import db.DbException;
 public class VendedorDAOJDBC implements VendedorDAO {
 
+	private Connection con;
+	
+	public VendedorDAOJDBC(Connection con) {
+		this.con = con;
+	}
+	
 	@Override
 	public void insert(Vendedor obj) {
 		
@@ -22,7 +35,40 @@ public class VendedorDAOJDBC implements VendedorDAO {
 
 	@Override
 	public Vendedor FindById(Integer id) {
-		return null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = con.prepareStatement(
+					"SELECT seller.*,department.Name as DepName "
+					+ "FROM seller INNER JOIN department "
+					+ "ON seller.DepartmentId = department.Id "
+					+ "WHERE seller.Id = ? ");
+			
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				Departamento dp = new Departamento();
+				dp.setId(rs.getInt("DepartmentId"));
+				dp.setNome(rs.getString("DepName"));
+				
+				Vendedor ven = new Vendedor();
+				ven.setId(rs.getInt("Id"));
+				ven.setNome(rs.getString("Name"));
+				ven.setEmail(rs.getString("Email"));
+				ven.setSalario(rs.getDouble("BaseSalary"));
+				ven.setAniversario(rs.getDate("BirthDate"));
+				ven.setDep(dp);
+				return ven;
+			}
+			return null;
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
 	}
 
 	@Override
