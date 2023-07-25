@@ -1,0 +1,13 @@
+package DAO;
+import java.util.List;
+
+import ProjetoJDBC.Vendedor;
+
+public interface VendedorDAO {
+
+	void insert(Vendedor obj);
+	void update(Vendedor obj);
+	void deleteByID(Integer id);
+	Vendedor FindById(Integer id);
+	List<Vendedor> FindAll();
+}
