@@ -1,0 +1,5 @@
+package ProjetoJDBC;
+
+public interface VendedorDAO {
+
+}

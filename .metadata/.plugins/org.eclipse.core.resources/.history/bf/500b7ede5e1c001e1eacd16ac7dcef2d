@@ -1,0 +1,16 @@
+package testing;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		LocalDate day01 = LocalDate.now();
+		LocalDateTime day02 = LocalDateTime.now();
+		System.out.println("day 01 = " + day01);
+		System.out.println("day 02 = " + day02);
+		
+	}
+}

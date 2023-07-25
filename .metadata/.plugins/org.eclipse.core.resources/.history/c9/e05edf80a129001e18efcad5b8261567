@@ -1,0 +1,28 @@
+package ProjetoJDBC;
+
+import java.util.Date;
+
+public class Vendedor {
+
+	private Integer id;
+	private String nome;
+	private String email;
+	private Date aniversario;
+	private Double salario;
+	
+	private Departamento dep;
+	
+	public Vendedor() {
+	}
+
+	public Vendedor(Integer id, String nome, String email, Date aniversario, Double salario, Departamento dep) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.aniversario = aniversario;
+		this.salario = salario;
+		this.dep = dep;
+	}
+	
+	
+}

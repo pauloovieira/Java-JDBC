@@ -1,0 +1,38 @@
+package DAO;
+
+import java.util.List;
+import ProjetoJDBC.Vendedor;
+
+public class VendedorDAOJDBC implements VendedorDAO {
+
+	@Override
+	public void insert(Vendedor obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Vendedor obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteByID(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Vendedor FindById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vendedor> FindAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

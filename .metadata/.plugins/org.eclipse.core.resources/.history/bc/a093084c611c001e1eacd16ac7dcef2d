@@ -1,0 +1,34 @@
+package testing;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		LocalDate day01 = LocalDate.now();
+		LocalDateTime day02 = LocalDateTime.now();
+		Instant day03 = Instant.now();
+		LocalDate day04 = LocalDate.parse("2023-07-06");
+		LocalDateTime day05 = LocalDateTime.parse("2023-07-06T01:20:20");
+		Instant day06 = Instant.parse("2023-07-01T15:20:30Z");
+		Instant day07 = Instant.parse("2023-07-01T15:20:30-03:00");
+		LocalDate day08 = LocalDate.parse("20/11/2020", fmt1);
+		LocalDateTime day09 = LocalDateTime.parse("20/10/2020 15:30", fmt1);
+		
+		System.out.println("day 01 = " + day01);
+		System.out.println("day 02 = " + day02);
+		System.out.println("day 03 = " + day03);
+		System.out.println("day 04 = " + day04);
+		System.out.println("day 05 = " + day05);
+		System.out.println("day 06 = " + day06);
+		System.out.println("day 07 = " + day07);
+		System.out.println("day 08 = " + day08);
+		System.out.println("day 09 = " + day09);
+	}
+}
